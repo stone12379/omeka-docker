@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     build: ./
-    image: klokantech/omeka
+    image: stone12379/omeka
     ports:
       - "80:80"
     restart: always
