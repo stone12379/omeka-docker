@@ -32,10 +32,7 @@ RUN curl -J -L -s -k \
 &&  mv /var/www/omeka-2.5 /var/www/html \
 &&  chown -R www-data:www-data /var/www/html
 
-# COPY ./omeka-2.7.1/ /var/www/html/
-
-RUN  chown -R www-data:www-data /var/www/html
-
+COPY ./favicon.ico /var/www/html/favicon.ico
 COPY ./config.ini /var/www/html/application/config/config.ini
 COPY ./globals.php /var/www/html/application/libraries/globals.php
 COPY ./db.ini /var/www/html/db.ini
