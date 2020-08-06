@@ -21,8 +21,8 @@ services:
   omeka:
     depends_on:
       - db
-    build: ./
-    image: stone12379/omeka
+    # build: ./
+    image: joesong168/omeka-iiif
     ports:
       - "80:80"
     restart: always
