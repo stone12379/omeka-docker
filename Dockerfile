@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:7.4-apache
 
 RUN a2enmod rewrite
 
@@ -24,13 +24,17 @@ RUN docker-php-ext-install exif && \
     docker-php-ext-enable exif
 
 RUN curl -J -L -s -k \
-    'https://github.com/omeka/Omeka/releases/download/v2.5/omeka-2.5.zip' \
+    'https://github.com/omeka/Omeka/releases/download/v2.7.1/omeka-2.7.1.zip' \
     -o /var/www/omeka.zip \
 &&  unzip -q /var/www/omeka.zip -d /var/www/ \
 &&  rm /var/www/omeka.zip \
 &&  rm -rf /var/www/html \
-&&  mv /var/www/omeka-2.5 /var/www/html \
+&&  mv /var/www/omeka-2.7.1 /var/www/html \
 &&  chown -R www-data:www-data /var/www/html
+
+# COPY ./omeka-2.7.1/ /var/www/html/
+
+RUN  chown -R www-data:www-data /var/www/html
 
 COPY ./config.ini /var/www/html/application/config/config.ini
 COPY ./db.ini /var/www/html/db.ini

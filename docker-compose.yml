@@ -21,7 +21,7 @@ services:
   omeka:
     depends_on:
       - db
-    # build: ./
+    build: ./
     image: joesong168/omeka-iiif
     ports:
       - "80:80"
