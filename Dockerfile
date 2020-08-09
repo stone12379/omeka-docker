@@ -37,7 +37,7 @@ COPY files/php.ini /usr/local/etc/php/
 
 # copy over the database and the apache config
 # COPY /files/.htaccess /var/www/html/.htaccess
-COPY ./favicon.ico /var/www/html/favicon.ico
+COPY ./files/favicon.ico /var/www/html/favicon.ico
 COPY ./files/db.ini /var/www/html/db.ini
 COPY ./files/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 COPY ./files/.htaccess /var/www/html/.htaccess
