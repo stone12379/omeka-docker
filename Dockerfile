@@ -4,8 +4,6 @@ WORKDIR /var/www/html
 # Install git ant and java
 ARG version=2.7.1
 
-RUN a2enmod rewrite
-
 RUN apt-get update && \
     apt-get -y install --no-install-recommends \
     git-core \
@@ -33,10 +31,9 @@ RUN unzip -d /tmp/ /tmp/omeka-classic.zip && mv /tmp/omeka-${version}/* /var/www
 #enable the rewrite module of apache
 RUN a2enmod rewrite
 #Create a default php.ini
-COPY files/php.ini /usr/local/etc/php/
+COPY ./files/php.ini /usr/local/etc/php/
 
 # copy over the database and the apache config
-# COPY /files/.htaccess /var/www/html/.htaccess
 COPY ./files/favicon.ico /var/www/html/favicon.ico
 COPY ./files/db.ini /var/www/html/db.ini
 COPY ./files/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
