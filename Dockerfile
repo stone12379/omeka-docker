@@ -40,7 +40,8 @@ COPY files/php.ini /usr/local/etc/php/
 COPY ./favicon.ico /var/www/html/favicon.ico
 COPY ./files/db.ini /var/www/html/db.ini
 COPY ./files/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
-COPY ./imagemagick-policy.xml /etc/ImageMagick/policy.xml
+COPY ./files/.htaccess /var/www/html/.htaccess
+COPY ./files/imagemagick-policy.xml /etc/ImageMagick/policy.xml
 # set the file-rights
 RUN chown -R www-data:www-data /var/www/html/
 # RUN chown -R www-data:www-data /var/www/html/files
