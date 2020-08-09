@@ -1,12 +1,5 @@
 FROM php:7.4-apache
 
-# Omeka-Classic web publishing platform for digital heritage collections (https://omeka.org/classic/)
-#MAINTAINER Sunny Patel <sunny.patel@monash.edu>
-
-LABEL maintainer_name="Sunny Patel"
-LABEL maintainer_email="sunny.patel@monash.edu"
-LABEL maintainer_email2="sunny33p@gmail.com"
-
 WORKDIR /var/www/html
 # Install git ant and java
 ARG version=2.7.1
@@ -43,7 +36,8 @@ RUN a2enmod rewrite
 COPY files/php.ini /usr/local/etc/php/
 
 # copy over the database and the apache config
-COPY /files/.htaccess /var/www/html/.htaccess
+# COPY /files/.htaccess /var/www/html/.htaccess
+COPY ./favicon.ico /var/www/html/favicon.ico
 COPY ./files/db.ini /var/www/html/db.ini
 COPY ./files/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 COPY ./imagemagick-policy.xml /etc/ImageMagick/policy.xml
